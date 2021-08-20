@@ -1,0 +1,56 @@
+
+.header{
+    .align-right{
+        float:right;
+    }
+
+   
+    // ul {
+    //     list-style-type: none;
+    //     margin: 0;
+    //     padding: 0;
+    //     overflow: hidden;
+
+    //     li {
+    //         float: left;
+    //         display: block;
+
+    //         color: white;
+    //         font-weight: 500;
+
+    //         text-align: center;
+    //         text-decoration: none;
+            
+    //         padding: 14px 16px;
+            
+    //     }
+
+    //     li:hover{
+    //         background-color: #fff;
+    //         color: #00008B;
+    //         box-sizing:content-box;       
+            
+    //         cursor: pointer;
+    //     }
+
+       
+    // }
+
+    width: 100%;
+    
+    display: inline;
+    position:fixed; 
+    top: 0;
+    right: 0;
+    
+    background-color: #00008B;
+    color: #fff;
+    
+    button{
+        padding: 10px;
+        font-size: 16px;        
+    }
+
+    
+
+}

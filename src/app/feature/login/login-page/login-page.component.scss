@@ -1,0 +1,37 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 300px;
+  gap: 100px;
+
+  box-sizing: border-box;
+
+  .title-login{
+    
+
+    h2 {
+      font-size: 2em;
+      font-weight: 500;
+      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      word-spacing: 15px;
+      text-transform: uppercase;
+      color: #00008B;
+    }
+  }
+
+  .title-login{
+    text-align: center;
+  }
+
+  .example-form {
+    min-width: 100px;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+}
