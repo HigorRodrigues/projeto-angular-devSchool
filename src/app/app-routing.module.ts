@@ -4,14 +4,16 @@ import { CreateEventPageComponent } from './feature/events/pages/create-event-pa
 import { EventsPageComponent } from './feature/events/pages/events-page/events-page.component';
 import { LoginPageComponent } from './feature/login/login-page/login-page.component';
 import { CreateUserPageComponent } from './feature/users/pages/create-user-page/create-user-page.component';
+import { UserPageComponent } from './feature/users/pages/user-page/user-page.component';
 
 const eventRoutes: Routes =[
   {path: "", pathMatch: "full", redirectTo: "events"},
   {path: "events", component: EventsPageComponent},
-  {path: "events/new", component: CreateUserPageComponent}
+  {path: "events/new", component: CreateEventPageComponent}
 ];
 
 const userRoutes: Routes =[
+  {path: "users", component: UserPageComponent},
   {path: "users/new", component: CreateUserPageComponent}
 ];
 

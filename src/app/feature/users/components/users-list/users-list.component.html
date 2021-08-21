@@ -1,0 +1,24 @@
+
+<div class="container">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>NOME</th>
+      <th>E-MAIL</th>
+      <th>PERFIL</th>
+      <th>AÇÕES</th>
+    </tr>
+    <tr *ngFor="let user of usersList">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.profile }}</td>
+      <td>
+        <mat-icon>edit</mat-icon>
+        <mat-icon>delete</mat-icon>
+        <mat-icon>visibility</mat-icon>
+      </td>
+    </tr>
+    
+  </table>
+</div>

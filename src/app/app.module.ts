@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventsModule } from './feature/events/events.module';
 import { LoginModule } from './feature/login/login.module';
 import { UsersModule } from './feature/users/users.module';
+
 @NgModule({
   declarations: [
     AppComponent,

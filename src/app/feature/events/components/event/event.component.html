@@ -2,10 +2,10 @@
 
   <mat-card>
     <mat-card-header>      
-      <mat-card-title>{{event.type}} - {{ event.name }}</mat-card-title>
+      <mat-card-title>{{event.type}} - {{ event.name | uppercase }}</mat-card-title>
       <mat-card-subtitle>
-        Início: {{ event.startDate | date }} |
-        Fim: {{ event.endDate | date }}
+        Início: {{ event.startDate | date:'dd/MM/yyyy' }} |
+        Fim: {{ event.endDate | date:'dd/MM/yyyy' }}
       </mat-card-subtitle>
     </mat-card-header>
     <img [src]="event.urlImage" alt="Photo of a Shiba Inu" height="200px" width="100%">

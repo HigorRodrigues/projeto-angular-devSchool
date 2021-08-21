@@ -4,18 +4,49 @@ import { CreateUserPageComponent } from './pages/create-user-page/create-user-pa
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
+const material = [
+  MatButtonModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatTableModule,
+];
 
 @NgModule({
   declarations: [
-    CreateUserPageComponent
+    CreateUserPageComponent,
+    UsersListComponent,
+    UserPageComponent
   ],
   imports: [
+    ...material,
     CommonModule,
+    FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+  ],
+  providers: [
+    MatDatepickerModule
   ]
 })
 export class UsersModule { }

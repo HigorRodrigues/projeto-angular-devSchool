@@ -1,15 +1,15 @@
 <div class="header">
   <ul>
-    <li routerLink="/events" class="title">MyEvents</li>
+    <li routerLink="/events" class="title no-hover">MyEvents</li>
     <li routerLink="/events">Eventos</li>
-    <li>Usuáios</li>
+    <li routerLink="/users">Usuários</li>
     <li routerLink="/login" *ngIf="!userRegistred" style="float:right">
       <mat-icon>login</mat-icon> Entrar 
     </li>
     <li *ngIf="userRegistred" (click)="exit()" style="float:right">
       <mat-icon>logout</mat-icon> Sair 
     </li>
-    <li *ngIf="userRegistred" style="float:right">
+    <li *ngIf="userRegistred" class="no-hover" style="float:right">
       Olá, {{ userRegistred.name.split(" ")[0] }}
     </li>
   </ul>

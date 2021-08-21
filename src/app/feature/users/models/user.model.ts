@@ -1,7 +1,10 @@
-export interface User {
+export class User {
 
+    constructor( ){ }
+    
     id: number;
+    name: string;
     email: string;
-    senha: string;
+    password: string;
     profile: "ADMIN" | "PARTICIPANTE";
 }
