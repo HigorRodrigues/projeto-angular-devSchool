@@ -1,0 +1,47 @@
+.container{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+  margin-top: 20px;
+  
+  .container-title{
+    font-size: 2em;
+    font-family: cursive;
+    color: #00008B;
+  }
+  .container-flex-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container-flex-child-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .form-select{
+    width: 100%;
+  }
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .margin-right{
+    margin-right: 25px;
+  }
+}
