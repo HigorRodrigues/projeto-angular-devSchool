@@ -8,12 +8,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const material = [
   MatButtonModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule
+  MatInputModule,
+  MatSnackBarModule
 ]
 
 @NgModule({
@@ -24,6 +27,7 @@ const material = [
     CommonModule,
     SharedModule,
     FormsModule,
+    RouterModule,
     ...material
   ]
 })

@@ -1,9 +1,12 @@
-export interface Event {
+export class Event {
 
+    constructor( ){}
+    
     id: number;
     name: string;
     description: string;
-    imageUrl: string;
+    urlImage: string;
     startDate: Date;
     endDate: Date;
+    type: string;
 }

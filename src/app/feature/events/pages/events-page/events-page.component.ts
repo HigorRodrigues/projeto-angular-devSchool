@@ -11,25 +11,28 @@ export class EventsPageComponent implements OnInit {
       id: 1,
       name: "Evento de Teste 1",
       description: "Esse é o evento de Teste 1",
-      imageUrl: "https://st2.depositphotos.com/1823785/7196/i/600/depositphotos_71969287-stock-photo-people-hands-holding-colorful-word.jpg",
+      urlImage: "https://st2.depositphotos.com/1823785/7196/i/600/depositphotos_71969287-stock-photo-people-hands-holding-colorful-word.jpg",
       startDate: new Date(),
-      endDate: new Date()
+      endDate: new Date(),
+      type: 'FEIRA'
     },
     {
       id: 2,
       name: "Evento de Teste 2",
       description: "Esse é o evento de Teste 2",
-      imageUrl: "https://tanabi.sp.gov.br/media/capas/20170109131607.jpg",
+      urlImage: "https://tanabi.sp.gov.br/media/capas/20170109131607.jpg",
       startDate: new Date(),
-      endDate: new Date()
+      endDate: new Date(),
+      type: "CURSO"
     },
     {
       id: 3,
       name: "Evento de Teste 3",
       description: "Esse é o evento de Teste 3",
-      imageUrl: "https://st.depositphotos.com/1053646/1770/i/600/depositphotos_17700789-stock-photo-dance-club.jpg",
+      urlImage: "https://st.depositphotos.com/1053646/1770/i/600/depositphotos_17700789-stock-photo-dance-club.jpg",
       startDate: new Date(),
-      endDate: new Date()
+      endDate: new Date(),
+      type: "FEIRA"
     },
   ];
   

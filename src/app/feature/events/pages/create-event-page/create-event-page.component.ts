@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Event } from '../../models/event.model';
 
 @Component({
   templateUrl: './create-event-page.component.html',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateEventPageComponent implements OnInit {
 
+  event: Event = new Event();
+  
   eventsTypes: Array<string> = [
     'CONFERÊNCIA',
     'CURSO',
@@ -21,4 +25,7 @@ export class CreateEventPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(eventForm: NgForm){
+
+  }
 }

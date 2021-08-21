@@ -36,8 +36,13 @@
           Email is <strong>required</strong>
         </mat-error> -->
       </mat-form-field>
-      <button mat-raised-button color="primary"
-      (click)="login(loginForm)" [disabled]="loginForm.invalid">Entrar</button>
+      <div class="container-flex-button">
+        <button mat-raised-button color="primary"
+          (click)="login(loginForm)" [disabled]="loginForm.invalid">
+            Entrar
+        </button>
+        <button routerLink="/events" mat-button color="primary">Cadastre-se</button>
+      </div>
     </form>
   </div>
 </div>

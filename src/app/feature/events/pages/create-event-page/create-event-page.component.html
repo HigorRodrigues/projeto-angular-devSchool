@@ -5,29 +5,30 @@
 
     <h2 class="container-title">Cadastrar Evento</h2>
 
-    <form #eventForm="ngForm" class="example-form" autocomplete="off">
+    <form #eventForm="ngForm" class="example-form" autocomplete="off" 
+        (submit)="onSubmit(eventForm)">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nome</mat-label>
-            <input ngModel matInput placeholder="Ex.: Arte no século XXI" 
+            <input [(ngModel)]="event.name" matInput placeholder="Ex.: Arte no século XXI" 
                 name="name" required>
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Imagem do evento (link)</mat-label>
-            <input ngModel matInput placeholder="Ex.: http://www.imagem.com/teste.png" 
+            <input [(ngModel)]="event.urlImage" matInput placeholder="Ex.: http://www.imagem.com/teste.png" 
                 name="urlImage" required>
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Descrição</mat-label>
-            <textarea ngModel matInput placeholder="Ex. Esse evento descreve..."
+            <textarea [(ngModel)]="event.description" matInput placeholder="Ex. Esse evento descreve..."
                 name="description" required></textarea>
         </mat-form-field>
 
         <div class="container-flex-child">
             <mat-form-field appearance="fill" class="example-form-field">
                 <mat-label>Data de início</mat-label>
-                <input ngModel matInput [matDatepicker]="datepickerStart"
+                <input [(ngModel)]="event.startDate" matInput [matDatepicker]="datepickerStart"
                     name="startDate" required>
                 <mat-datepicker-toggle matSuffix [for]="datepickerStart">  
                 </mat-datepicker-toggle>
@@ -41,7 +42,7 @@
 
             <mat-form-field appearance="fill" class="example-form-field">
                 <mat-label>Data de encerramento</mat-label>
-                <input ngModel matInput [matDatepicker]="datepickerEnd" 
+                <input [(ngModel)]="event.endDate" matInput [matDatepicker]="datepickerEnd" 
                     name="endDate" required>
                 <mat-datepicker-toggle matSuffix [for]="datepickerEnd">
                 </mat-datepicker-toggle>
@@ -56,7 +57,7 @@
 
         <mat-form-field appearance="fill" class="form-select">
             <mat-label>Tipo</mat-label>
-            <mat-select ngModel name="type" required>
+            <mat-select [(ngModel)]="event.type" name="type" required>
               <mat-option *ngFor="let event of eventsTypes" [value]="event">
                 {{event}}
               </mat-option>

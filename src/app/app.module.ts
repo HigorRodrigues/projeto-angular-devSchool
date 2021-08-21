@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './shared/shared.module';
+
 import { EventsModule } from './feature/events/events.module';
 import { LoginModule } from './feature/login/login.module';
+import { UsersModule } from './feature/users/users.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { LoginModule } from './feature/login/login.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     EventsModule,
-    LoginModule
+    LoginModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
