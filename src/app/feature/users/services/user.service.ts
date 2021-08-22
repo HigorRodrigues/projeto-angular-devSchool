@@ -19,6 +19,10 @@ export class UserService {
     return this.httpClient.get<Array<User>>(this.apiUrl + 'users');
   }
 
+  getById(id: number){
+    return this.httpClient.get<User>(this.apiUrl + `users/details/${Number(id)}`);
+  }
+
   getUserByEmailAndPassword(email: string, password: string){    
     return this.httpClient.post(this.apiUrl + 'users/authenticate', 
       { email, password }
@@ -27,5 +31,13 @@ export class UserService {
 
   addUser(user: User){
     return this.httpClient.post(this.apiUrl + 'users/create', user)
+  }
+
+  removeUser(id?: number){
+    return this.httpClient.delete(this.apiUrl + `users/delete/${id}`);
+  }
+
+  updateUser(user: User){
+    return this.httpClient.put(this.apiUrl + 'users/update', user);
   }
 }

@@ -16,6 +16,7 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { EditUserPageComponent } from './pages/edit-user-page/edit-user-page.component';
 
 
 const material = [
@@ -34,7 +35,8 @@ const material = [
   declarations: [
     CreateUserPageComponent,
     UsersListComponent,
-    UserPageComponent
+    UserPageComponent,
+    EditUserPageComponent
   ],
   imports: [
     ...material,

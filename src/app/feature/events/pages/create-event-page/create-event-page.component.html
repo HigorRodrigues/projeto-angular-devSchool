@@ -55,15 +55,6 @@
             </mat-form-field>
         </div>
 
-        <mat-form-field appearance="fill" class="form-select">
-            <mat-label>Tipo</mat-label>
-            <mat-select [(ngModel)]="event.type" name="type" required>
-              <mat-option *ngFor="let event of eventsTypes" [value]="event">
-                {{event}}
-              </mat-option>
-            </mat-select>
-        </mat-form-field>
-
         <div class="container-flex-child-button">
             <button routerLink="/events" mat-raised-button color="warn">Cancelar</button>
             <button mat-raised-button color="primary" 

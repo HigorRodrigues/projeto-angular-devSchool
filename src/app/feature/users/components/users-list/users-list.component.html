@@ -14,9 +14,13 @@
       <td>{{ user.email }}</td>
       <td>{{ user.profile }}</td>
       <td>
-        <mat-icon>edit</mat-icon>
-        <mat-icon>delete</mat-icon>
-        <mat-icon>visibility</mat-icon>
+        <button [routerLink]="['/users/edit', user.id]" class="icon-button" mat-mini-fab color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="delete(user.id)" class="icon-button" 
+            mat-mini-fab color="primary">
+          <mat-icon>delete</mat-icon>
+        </button>
       </td>
     </tr>
     

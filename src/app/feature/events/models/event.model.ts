@@ -8,5 +8,4 @@ export class Event {
     urlImage: string;
     startDate: Date;
     endDate: Date;
-    type: string;
 }

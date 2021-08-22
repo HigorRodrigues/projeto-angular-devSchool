@@ -5,8 +5,11 @@
 
     <h2 class="container-title">Cadastro de Usuário</h2>
 
-    <form [formGroup]="userForm" class="example-form" autocomplete="off"
-        (submit)="createUser(userForm)">
+    <form *ngIf="userEdit"  [formGroup]="userEdit" class="example-form" autocomplete="off"
+        (submit)="onSubmit(this.userEdit)">
+
+        <input type="hidden" formControlName="id" name="id">
+
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nome</mat-label>
             <input formControlName="name" matInput placeholder="Ex.: João ..." 
@@ -25,7 +28,7 @@
                 name="email" required>
         </mat-form-field>
 
-        <!-- <mat-form-field appearance="fill" class="form-select">
+        <mat-form-field appearance="fill" class="form-select">
             <mat-label>Tipo</mat-label>
             <mat-select formControlName="profile" name="profile" required>
               <mat-option *ngFor="let profile of userPofiles" [value]="profile">
@@ -33,12 +36,11 @@
               </mat-option>
             </mat-select>
         </mat-form-field>
-         -->
 
         <div class="container-flex-child-button">
             <button routerLink="/events" mat-raised-button color="warn">Cancelar</button>
             <button mat-raised-button color="primary" 
-                [disabled]="userForm.invalid">Salvar</button>            
+                [disabled]="userEdit.invalid">Salvar</button>
         </div>
     </form>
 </div>

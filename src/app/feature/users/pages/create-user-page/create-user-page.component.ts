@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
@@ -10,13 +10,8 @@ import { UserService } from '../../services/user.service';
 })
 export class CreateUserPageComponent implements OnInit {
 
-  user?: User;
-  userPofiles: Array<string> = ['ADMIN', 'PARTICIPANTE'];
-  userForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)])
-  });
+  user?: User;  
+  userForm: FormGroup;
 
   constructor(
     private userService: UserService,
@@ -24,12 +19,18 @@ export class CreateUserPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user = new User();
+    this.loadForm();
   }
 
+  loadForm(){
+    this.userForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),            
+    });
+  }
   createUser(userForm: FormGroup){
     this.user = userForm.value
-    this.user.id = 100;
     this.user.profile = 'PARTICIPANTE';
     this.userService.addUser(this.user).subscribe(
       (u) => {
