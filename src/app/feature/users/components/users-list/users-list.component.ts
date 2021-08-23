@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { MessageDialogComponent } from 'src/app/shared/messages/message-dialog/message-dialog.component';
+import { SnackbarDialogComponent } from 'src/app/shared/messages/snackbar-dialog/snackbar-dialog.component';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
@@ -19,7 +23,9 @@ export class UsersListComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog,
+    private snack: MatSnackBar
     ) { 
     
   }
@@ -30,10 +36,16 @@ export class UsersListComponent implements OnInit {
 
   delete(id: number){
     this.userService.removeUser(id).subscribe( () => {
+      this.dialog.open(MessageDialogComponent,
+        {
+          width: '300px',
+          data: { message: "Usuário excluído com sucesso!"}
+        }  
+      )
       this.getAll();
     },
     err => {
-      console.log(err);
+      this.messageSnack(err.message)
     })
   }
 
@@ -41,5 +53,12 @@ export class UsersListComponent implements OnInit {
     this.userService.getAllUsers().subscribe( (users) => {
       this.usersList = users;
    })
+  }
+
+  messageSnack(message: string){
+    this.snack.openFromComponent(SnackbarDialogComponent, {
+      data: message,
+      duration: 3500
+    })
   }
 }

@@ -38,7 +38,12 @@ export class EventComponent implements OnInit {
       this.router.navigate(['events']);
     },
     err => {
-      console.log("Não foi possível excluir usuário");
+      this.dialog.open(MessageDialogComponent,
+        {
+          width: '300px',
+          data: { message: err.message}
+        }  
+      )
     })
   }
 

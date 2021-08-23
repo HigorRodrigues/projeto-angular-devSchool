@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { SnackbarDialogComponent } from 'src/app/shared/messages/snackbar-dialog/snackbar-dialog.component';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
@@ -16,6 +18,7 @@ export class CreateUserPageComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
+    private snack: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -37,12 +40,20 @@ export class CreateUserPageComponent implements OnInit {
         if( !u ){
           return;
         }
+        this.messageSnack("Usuário cadastrado com sucesso")
         this.router.navigateByUrl("/events");
       },
       err => {
-        console.log("Algum erro aconteceu");
+        this.messageSnack("Erro ao cadastrar usuário");
       }
     )
+  }
+
+  messageSnack(message: string){
+    this.snack.openFromComponent(SnackbarDialogComponent, {
+      data: message,
+      duration: 3500
+    })
   }
 
   private gerarForm(){

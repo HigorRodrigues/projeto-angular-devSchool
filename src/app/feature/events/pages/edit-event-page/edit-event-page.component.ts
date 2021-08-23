@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SnackbarDialogComponent } from 'src/app/shared/messages/snackbar-dialog/snackbar-dialog.component';
 import { Event } from '../../models/event.model';
 import { EventService } from '../../services/event.service';
 
@@ -17,7 +19,8 @@ export class EditEventPageComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private activated: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private snack: MatSnackBar) { }
 
   ngOnInit(): void {
     this.eventId = this.activated.snapshot.params.id;
@@ -45,10 +48,18 @@ export class EditEventPageComponent implements OnInit {
   eventEdit(form: FormGroup){
     const eventUpdate = form.value;
     this.eventService.updateEvent(eventUpdate).subscribe((e) =>{
+      this.messageSnack("Evento editado com sucesso")
       this.router.navigateByUrl('events');
     },
     err =>{
-      console.log("Algo deu errado");
+      this.messageSnack(err.message);
+    })
+  }
+
+  messageSnack(message: string){
+    this.snack.openFromComponent(SnackbarDialogComponent, {
+      data: message,
+      duration: 3500
     })
   }
 }

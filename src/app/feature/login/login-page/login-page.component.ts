@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../users/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarDialogComponent } from 'src/app/shared/messages/snackbar-dialog/snackbar-dialog.component';
 
 @Component({
   templateUrl: './login-page.component.html',
@@ -13,7 +14,7 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private _snackBar: MatSnackBar  
+    private snack: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -24,22 +25,22 @@ export class LoginPageComponent implements OnInit {
         loginForm.value.password)
         .subscribe( (user) => {
           if( !user ){
-            this.openSnackBar("E-mail ou senha está errado", "Erro");
+            this.messageSnack("E-mail ou senha está errado");            
             return;
           }
           sessionStorage.setItem('user', JSON.stringify(user));
-          this.openSnackBar("Login Realizado com sucesso", "Ok");
+          this.messageSnack("Login Realizado com sucesso")         
           return this.router.navigateByUrl("events");
         },
         err => {
-          this.openSnackBar("Algo está errado conosco", "Erro");
+          this.messageSnack(err.message)                   
         })
   }
 
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      duration: 4 * 1000,
-    });
+  messageSnack(message: string){
+    this.snack.openFromComponent(SnackbarDialogComponent, {
+      data: message,
+      duration: 3500
+    })
   }
-
 }

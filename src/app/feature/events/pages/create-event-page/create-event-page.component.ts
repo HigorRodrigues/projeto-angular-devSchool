@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { SnackbarDialogComponent } from 'src/app/shared/messages/snackbar-dialog/snackbar-dialog.component';
 import { Event } from '../../models/event.model';
 import { EventService } from '../../services/event.service';
 
@@ -21,7 +23,8 @@ export class CreateEventPageComponent implements OnInit {
 
   constructor(
     private eventService: EventService,
-    private router: Router
+    private router: Router,
+    private snack: MatSnackBar
   ) { }
 
 
@@ -32,11 +35,19 @@ export class CreateEventPageComponent implements OnInit {
     const event = eventForm.value;
     if( event ){
       this.eventService.create(event).subscribe( (event) => {
+        this.messageSnack("Evento criado com sucesso");
         this.router.navigateByUrl('events')
       },
       err => {
-        console.log("Erro ao cadastrar event");
+        this.messageSnack(err.message);
       })
     }
+  }
+
+  messageSnack(message: string){
+    this.snack.openFromComponent(SnackbarDialogComponent, {
+      data: message,
+      duration: 3500
+    })
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SnackbarDialogComponent } from 'src/app/shared/messages/snackbar-dialog/snackbar-dialog.component';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
@@ -17,7 +19,8 @@ export class EditUserPageComponent implements OnInit {
   constructor(
     private userService: UserService,
     private activated: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snack: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +37,7 @@ export class EditUserPageComponent implements OnInit {
         })        
       },
       err => {
-        console.log("Algo deu errado");
+        this.messageSnack("Erro ao carregar usuário");    
         this.router.navigateByUrl("users")
       })
     } 
@@ -43,10 +46,18 @@ export class EditUserPageComponent implements OnInit {
   onSubmit(userForm: FormGroup){
     const userUpdate = userForm.value;
     this.userService.updateUser(userUpdate).subscribe((u) =>{
+      this.messageSnack("Usuário editado com sucesso");
       this.router.navigateByUrl('users');
     },
     err =>{
-      console.log("Algo deu errado");
+      this.messageSnack("Erro ao editar usuário");
+    })
+  }
+
+  messageSnack(message: string){
+    this.snack.openFromComponent(SnackbarDialogComponent, {
+      data: message,
+      duration: 3500
     })
   }
 }
