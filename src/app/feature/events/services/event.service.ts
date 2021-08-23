@@ -34,4 +34,8 @@ export class EventService {
   updateEvent(event: Event){
     return this.httpClient.put(this.apiUrl + 'events/update', event);
   }
+
+  getByName(name: String){
+    return this.httpClient.get<Array<Event>>(this.apiUrl + `events/find/${name}`);
+  }
 }

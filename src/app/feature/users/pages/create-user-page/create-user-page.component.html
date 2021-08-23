@@ -24,17 +24,7 @@
             <input type="password" formControlName="password" matInput placeholder="Ex.: ******" 
                 name="email" required>
         </mat-form-field>
-
-        <!-- <mat-form-field appearance="fill" class="form-select">
-            <mat-label>Tipo</mat-label>
-            <mat-select formControlName="profile" name="profile" required>
-              <mat-option *ngFor="let profile of userPofiles" [value]="profile">
-                {{profile}}
-              </mat-option>
-            </mat-select>
-        </mat-form-field>
-         -->
-
+        
         <div class="container-flex-child-button">
             <button routerLink="/events" mat-raised-button color="warn">Cancelar</button>
             <button mat-raised-button color="primary" 
@@ -42,3 +32,5 @@
         </div>
     </form>
 </div>
+
+<app-footer></app-footer>

@@ -1,12 +1,16 @@
 <app-header></app-header>
 <br><br><br>
 
-<div *ngIf="verifyEmptyEvents()">
-    <h2 class="container-title">Não há eventos cadastrados</h2>
-</div>
-<div class="search">
-    <div class="search-input">
-        <input type="text" id="fname" name="firstname" placeholder="Nome do evento..">
+<div class="container">
+    <div *ngIf="verifyEmptyEvents()">
+        <h2 class="container-title">Não há eventos cadastrados</h2>
     </div>
+    <div class="search">
+        <div class="search-input">
+            <input type="text" id="fname" placeholder="Nome do evento.."
+            (input)="onTextChange($event)">
+        </div>
+    </div>
+    <app-event-list [events] = "eventFiltered"></app-event-list>
 </div>
-<app-event-list [events] = "eventList"></app-event-list>
+<app-footer></app-footer>

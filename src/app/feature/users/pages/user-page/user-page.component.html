@@ -3,7 +3,10 @@
 
 <div class="search">
     <div class="search-input">
-        <input type="text" id="fname" name="firstname" placeholder="Nome do usuário..">
+        <input type="text" id="fname" name="name" autocomplete="off"
+            placeholder="Nome do usuário.." (input)="onTextChange($event)">
     </div>
 </div>
-<app-users-list [usersList]="users"></app-users-list>
+<app-users-list [usersList]="usersFiltered"></app-users-list>
+
+<app-footer></app-footer>

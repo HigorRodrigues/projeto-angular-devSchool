@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-
+  
   private apiUrl = environment.apiUrl;
 
   constructor(
@@ -39,5 +39,9 @@ export class UserService {
 
   updateUser(user: User){
     return this.httpClient.put(this.apiUrl + 'users/update', user);
+  }
+
+  getByName(query: string){
+    return this.httpClient.get<Array<User>>(this.apiUrl + `users/find/${query}`);
   }
 }

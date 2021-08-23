@@ -10,7 +10,7 @@
     <img [src]="event.urlImage" alt="Photo of a Shiba Inu" height="200px" width="100%">
   </div>
 
-  <div>
+  <div class="actions">
     <button mat-raised-button color="primary" [routerLink]="['/events/details', event.id]">
       Ver Mais
     </button>
@@ -34,7 +34,7 @@
     <strong>Descrição: </strong>{{ event?.description }}
   </p>
   <div class="card-image">
-    <img [src]="event?.urlImage" [title]="event?.description">
+    <img [src]="event?.urlImage" [title]="event?.description" width="500px">
   </div>
   <div class="card-actions">
     <button routerLink="/events" color="primary" mat-button>
