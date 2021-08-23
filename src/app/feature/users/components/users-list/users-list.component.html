@@ -14,12 +14,12 @@
       <td>{{ user.email }}</td>
       <td>{{ user.profile }}</td>
       <td>
-        <button [routerLink]="['/users/edit', user.id]" class="icon-button" mat-mini-fab color="primary">
+        <button [routerLink]="['/users/edit', user.id]" color="primary" 
+          mat-icon-button>
           <mat-icon>edit</mat-icon>
         </button>
-        <button (click)="delete(user.id)" class="icon-button" 
-            mat-mini-fab color="primary">
-          <mat-icon>delete</mat-icon>
+        <button (click)="delete(user.id)" color="primary" mat-icon-button>
+          <mat-icon color>delete</mat-icon>
         </button>
       </td>
     </tr>

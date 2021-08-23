@@ -18,7 +18,10 @@ export class EventsPageComponent implements OnInit {
     err => {
       console.log(err);
     })
+  }
 
+  verifyEmptyEvents(){
+    return this.eventList.length === 0;
   }
 
 }

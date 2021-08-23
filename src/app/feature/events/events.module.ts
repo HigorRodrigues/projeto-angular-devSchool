@@ -6,6 +6,7 @@ import { EventsPageComponent } from './pages/events-page/events-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateEventPageComponent } from './pages/create-event-page/create-event-page.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //imports from material
 import { MatCardModule } from '@angular/material/card';
@@ -17,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
+import { EditEventPageComponent } from './pages/edit-event-page/edit-event-page.component';
+import { EventDetailsPageComponent } from './pages/event-details-page/event-details-page.component';
 
 const material = [
   MatButtonModule,
@@ -34,14 +37,18 @@ const material = [
     EventListComponent,
     EventComponent,
     EventsPageComponent,
-    CreateEventPageComponent
+    CreateEventPageComponent,
+    EditEventPageComponent,
+    EventDetailsPageComponent
   ],
   imports: [
+    ...material,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     SharedModule,
-    ...material,
+    
   ],
   providers: [
     MatDatepickerModule

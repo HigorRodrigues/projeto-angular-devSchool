@@ -1,8 +1,15 @@
 <div class="header">
-  <ul>
+  <ul class="navigate">
     <li routerLink="/events" class="title no-hover">MyEvents</li>
-    <li routerLink="/events">Eventos</li>
-    <li routerLink="/users">Usuários</li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Eventos</a>
+      <ul class="dropdown-content">
+        <a [href]="['events']">Eventos Cadastrados</a>
+        <a *ngIf="userAdmin()" [href]="['events/new']">Cadastrar</a>
+      </ul>
+    </li>
+
+    <li *ngIf="userAdmin()" routerLink="/users">Usuários</li>
     <li routerLink="/login" *ngIf="!userRegistred" style="float:right">
       <mat-icon>login</mat-icon> Entrar 
     </li>

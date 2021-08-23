@@ -30,14 +30,16 @@ export class UsersListComponent implements OnInit {
 
   delete(id: number){
     this.userService.removeUser(id).subscribe( () => {
-      console.log("User removido com sucesso");
-      // this.router.navigateByUrl("users/delete")
-      this.userService.getAllUsers().subscribe( (users) => {
-         this.usersList = users;
-      })
+      this.getAll();
     },
     err => {
       console.log(err);
     })
+  }
+
+  getAll(){
+    this.userService.getAllUsers().subscribe( (users) => {
+      this.usersList = users;
+   })
   }
 }

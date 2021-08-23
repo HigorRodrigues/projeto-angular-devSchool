@@ -1,21 +1,48 @@
 
 
-  <mat-card>
-    <mat-card-header>      
-      <mat-card-title>{{ event.name | uppercase }}</mat-card-title>
-      <mat-card-subtitle>
-        Início: {{ event.startDate | date:'dd/MM/yyyy' }} |
-        Fim: {{ event.endDate | date:'dd/MM/yyyy' }}
-      </mat-card-subtitle>
-    </mat-card-header>
+<div class="card" *ngIf="card">
+  <h2>{{ event.name | uppercase }}</h2>
+  <h3>
+    Início: {{ event.startDate | date:'dd/MM/yyyy' }}
+  </h3>
+    
+  <div>
     <img [src]="event.urlImage" alt="Photo of a Shiba Inu" height="200px" width="100%">
-    <mat-card-content>
-      <p>
-        {{ event.description }}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary">Atividades</button>
-      <!-- <button mat-button>SHARE</button> -->
-    </mat-card-actions>
-  </mat-card>
+  </div>
+
+  <div>
+    <button mat-raised-button color="primary" [routerLink]="['/events/details', event.id]">
+      Ver Mais
+    </button>
+    
+    <button *ngIf="userAdmin()" mat-button color="primary" [routerLink]="['/events/edit', event.id]">
+      <mat-icon>edit</mat-icon>
+    </button>
+    
+    
+  </div>
+</div>
+
+<div *ngIf="!card" class="card-conteiner">
+  <h2>{{ event?.name }}</h2>
+  <p class="card-text">
+    <strong>Quando acontecerá? </strong> Entre os dias 
+      {{ event?.startDate | date: 'dd/MM/yyyy' }} e os dias 
+      {{ event?.endDate | date: 'dd/MM/yyyy' }}
+  </p>
+  <p class="card-text">
+    <strong>Descrição: </strong>{{ event?.description }}
+  </p>
+  <div class="card-image">
+    <img [src]="event?.urlImage" [title]="event?.description">
+  </div>
+  <div class="card-actions">
+    <button routerLink="/events" color="primary" mat-button>
+      Página de Eventos
+    </button>
+
+    <button *ngIf="userAdmin()" (click)="delete(event.id)" color="primary" mat-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

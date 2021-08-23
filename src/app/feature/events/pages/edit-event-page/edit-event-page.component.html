@@ -5,8 +5,10 @@
 
     <h2 class="container-title">Cadastrar Evento</h2>
 
-    <form [formGroup]="eventForm" class="example-form" autocomplete="off" 
-        (submit)="onSubmit(eventForm)">
+    <form *ngIf="eventForm" [formGroup]="eventForm" class="example-form" autocomplete="off" 
+        (submit)="eventEdit(eventForm)">
+
+        <input type="hidden" formControlName="id" name="id">
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nome</mat-label>

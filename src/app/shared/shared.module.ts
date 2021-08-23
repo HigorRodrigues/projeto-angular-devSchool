@@ -6,6 +6,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MessageDialogComponent } from './messages/message-dialog/message-dialog.component';
 
 const material = [
   MatButtonModule,
@@ -20,7 +21,8 @@ const components = [
 
 @NgModule({
   declarations: [
-    ...components
+    ...components,
+    MessageDialogComponent
   ],
   imports: [
     ...material,

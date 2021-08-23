@@ -1,5 +1,37 @@
 
-mat-card{     
+.card{     
+  
   max-width: 300px;
   z-index: -10;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  padding: 10px;
 }  
+
+.card-conteiner{
+  margin: 8%;
+  color: #00008B;
+
+  h2{
+    text-align: center;
+    font-size: 2em;
+    font-family: cursive;
+  }
+
+  p{
+    font-size: 1.3em;
+    text-align: justify;
+  }
+
+  .card-image{
+    margin: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .card-actions{
+    text-align: center;
+    font-size: 1.2em;
+    border-top: 1px solid #00008B;
+  }
+}

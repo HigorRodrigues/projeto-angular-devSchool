@@ -26,5 +26,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+  userAdmin(){
+    return this.userRegistred?.profile === "ADMIN";
+  }
+
 
 }

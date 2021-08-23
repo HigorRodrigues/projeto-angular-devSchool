@@ -1,3 +1,8 @@
 <app-header></app-header>
 <br><br><br>
+
+<div *ngIf="verifyEmptyEvents()">
+    <h2 class="container-title">Não há eventos cadastrados</h2>
+</div>
+
 <app-event-list [events] = "eventList"></app-event-list>
